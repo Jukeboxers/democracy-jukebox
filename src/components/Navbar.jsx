@@ -48,7 +48,6 @@ class Navbar extends React.Component {
           <MenuItem onClick={this.handleClose}><Link to="/">Playlist</Link></MenuItem>
           <MenuItem onClick={this.handleClose}><Link to="/search">Search</Link></MenuItem>
           <MenuItem onClick={this.handleClose}><Link to="/signup">Sign Up</Link></MenuItem>
-          <MenuItem onClick={this.handleClose}><a href={window.server + '/hostLogin'}>Login as Host</a></MenuItem>
         </Drawer>
       </div>
     )
@@ -56,3 +55,4 @@ class Navbar extends React.Component {
 }
 
 export default Navbar;
+window.Navbar = Navbar;

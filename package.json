@@ -1,11 +1,19 @@
 {
   "author": "",
+  "description": "My Project",
+  "keywords": [],
+  "license": "ISC",
+  "main": "index.js",
+  "name": "my-project",
+  "scripts": {
+    "start": "webpack-dev-server --port 8080 --host 127.0.0.1 --open --config webpack.dev.js",
+    "compile": "webpack -p",
+    "production": "grunt deploy",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.0",
   "dependencies": {
     "axios": "^0.16.2",
-    "babel-core": "^6.22.1",
-    "babel-loader": "^6.2.10",
-    "babel-preset-latest": "^6.22.0",
-    "babel-preset-react": "^6.22.0",
     "bluebird": "^3.5.0",
     "body-parser": "^1.18.2",
     "cookie-parser": "^1.4.3",
@@ -33,22 +41,26 @@
     "spotify-web-api-js": "^0.22.1",
     "webpack-dev-middleware": "^1.10.0"
   },
-  "description": "My Project",
-  "keywords": [],
-  "license": "ISC",
-  "main": "index.js",
-  "name": "my-project",
-  "scripts": {
-    "start": "webpack-dev-server",
-    "compile": "webpack -p",
-    "production": "grunt deploy",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "version": "1.0.0",
   "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.25.0",
+    "babel-eslint": "^7.2.3",
+    "babel-loader": "^7.1.1",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-latest": "^6.22.0",
+    "babel-preset-react": "^6.24.1",
+    "compression-webpack-plugin": "^1.0.0",
+    "lodash": "^4.17.4",
     "node-sass": "^4.5.3",
+    "react-addons-test-utils": "^15.6.0",
+    "redux-promise-middleware": "^4.4.1",
     "sass-loader": "^6.0.6",
+    "uglifyjs-webpack-plugin": "^0.4.6",
     "webpack": "^2.7.0",
-    "webpack-dev-server": "^2.9.1"
+    "webpack-dev-server": "^2.6.1",
+    "webpack-merge": "^4.1.0"
   }
 }

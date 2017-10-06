@@ -43,3 +43,4 @@ class Signup extends React.Component {
 }
 
 export default Signup;
+window.Signup = Signup;

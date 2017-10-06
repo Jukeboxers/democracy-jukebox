@@ -52,7 +52,6 @@ const generateRandomString = (length) => {
 
 //redirect host user to Spotify login page to obtain authorization code
 exports.handleHostLogin = (req, res) => {
-  console.log(credentials.redirect_uri)
   const state = generateRandomString(16);
   const scope = 'user-read-private user-read-email user-read-playback-state user-modify-playback-state';
 
@@ -63,7 +62,7 @@ exports.handleHostLogin = (req, res) => {
       response_type: 'code',
       client_id: credentials.client_id,
       scope: scope,
-      redirect_uri: credentials.redirect_uri + '/callback',
+      redirect_uri: credentials.redirect_uri,
       state: state
     }));
 };
@@ -72,11 +71,12 @@ exports.handleHostLogin = (req, res) => {
 //handle the redirect from Spotify after login and save the authorization code
 exports.redirectAfterLogin = (req, res) => {
   const code = req.query.code || null;
+
   const playerAuthOptions = {
     url: 'https://accounts.spotify.com/api/token',
     form: {
       code: code,
-      redirect_uri: credentials.redirect_uri + '/callback',
+      redirect_uri: credentials.redirect_uri,
       grant_type: 'authorization_code'
     },
     headers: {
@@ -87,13 +87,13 @@ exports.redirectAfterLogin = (req, res) => {
 
   //make a new request to spotify API and provide the authorization code in exchange for a token
   request.post(playerAuthOptions, function(error, response, body) {
-    if (!error && response.statusCode === 200) {
 
+    if (!error && response.statusCode === 200) {
       const access_token = body.access_token;
       const refresh_token = body.refresh_token;
 
       //redirect host user back to playlist page and pass token to browser
-      res.redirect(credentials.redirect_uri + '#' +
+      res.redirect(credentials.redirect_homepage + '#' +
         querystring.stringify({
           access_token: access_token,
           refresh_token: refresh_token

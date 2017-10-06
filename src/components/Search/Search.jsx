@@ -2,8 +2,6 @@ import React from 'react';
 import axios from 'axios';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
-import SearchEntry from './SearchEntry';
-import Login from './Login';
 import { Link } from 'react-router-dom';
 
 class Search extends React.Component{
@@ -133,3 +131,4 @@ class Search extends React.Component{
 }
 
 export default Search;
+window.Search = Search;

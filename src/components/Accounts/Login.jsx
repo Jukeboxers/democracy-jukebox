@@ -31,3 +31,4 @@ const Login = (props) => {
 }
 
 export default Login;
+window.Login = Login;

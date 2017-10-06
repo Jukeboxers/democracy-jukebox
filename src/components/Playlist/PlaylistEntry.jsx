@@ -67,3 +67,4 @@ const PlaylistEntry = (props) => {
 }
 
 export default PlaylistEntry;
+window.PlaylistEntry = PlaylistEntry;

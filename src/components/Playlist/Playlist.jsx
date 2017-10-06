@@ -1,8 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 import SpotifyWebApi from 'spotify-web-api-js';
-import PlaylistEntry from './PlaylistEntry';
-import Player from './Player.js';
 import FlatButton from 'material-ui/FlatButton';
 
 const spotifyApi = new SpotifyWebApi();
@@ -85,7 +83,11 @@ class Playlist extends React.Component {
   getDeviceId() {
     spotifyApi.getMyDevices()
       .then((data) => {
-        this.setState({deviceId : data.devices[0].id})
+        if (data.devices) {
+          if (data.devices.length>0){
+            this.setState({deviceId : data.devices[0].id})
+          }
+        }
       }, (err) =>{
         console.error(err);
       });
@@ -161,3 +163,4 @@ class Playlist extends React.Component {
 }
 
 export default Playlist;
+window.Playlist = Playlist;
