@@ -129,7 +129,7 @@ class Playlist extends React.Component {
     // define custom css
     const PlaylistComponentWrap = styled.div`
       background: #1c2137;
-      height: 100vh;
+      height: calc(100vh - 64px);
       width: 100%;
       overflow-y: scroll;
     `;
